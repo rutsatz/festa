@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@festa.css" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FestaController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+            <Tab fx:id="tabConvites" closable="false" onSelectionChanged="#selecionarConvites" text="Convites">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="liFestas" layoutX="26.0" layoutY="38.0" onKeyReleased="#conviteSelecionarFesta" onMouseClicked="#conviteSelecionarFesta" prefHeight="125.0" prefWidth="539.0" />
+                        <ListView fx:id="liConvidados" layoutX="26.0" layoutY="190.0" prefHeight="140.0" prefWidth="542.0" />
+                        <Label layoutX="24.0" layoutY="14.0" text="Festas" />
+                        <Label layoutX="26.0" layoutY="173.0" text="Convidados" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="tabCadastrarPessoa" closable="false" onSelectionChanged="#selecionarCadastrarPessoa" text="Cadastrar Pessoa">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="40.0" layoutY="50.0" prefHeight="76.0" prefWidth="528.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="55.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="473.0" minWidth="10.0" prefWidth="473.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txNome" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="txCPF" GridPane.columnIndex="1" />
+                              <Label text="Nome" GridPane.rowIndex="1" />
+                              <Label text="CPF" />
+                           </children>
+                        </GridPane>
+                        <Button layoutX="251.0" layoutY="150.0" mnemonicParsing="false" onAction="#salvarPessoa" prefHeight="25.0" prefWidth="99.0" text="Salvar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabCadastrarFesta" closable="false" onSelectionChanged="#selecionarCadastrarFesta" text="Cadastrar Festa">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <GridPane layoutX="40.0" layoutY="47.0" prefHeight="50.0" prefWidth="527.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="207.0" minWidth="10.0" prefWidth="47.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="480.0" minWidth="10.0" prefWidth="480.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <TextField fx:id="txLocal" prefWidth="470.0" GridPane.columnIndex="1" />
+                              <Label text="Local" />
+                           </children>
+                        </GridPane>
+                        <Button layoutX="250.0" layoutY="124.0" mnemonicParsing="false" onAction="#salvarFesta" prefHeight="32.0" prefWidth="92.0" text="Salvar" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabConvidarFesta" closable="false" onSelectionChanged="#selecionarConvidarFesta" text="Convidar para Festa">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="liConvidarFesta" layoutX="37.0" layoutY="37.0" prefHeight="113.0" prefWidth="527.0" />
+                        <ListView fx:id="liConvidarPessoa" layoutX="40.0" layoutY="182.0" prefHeight="142.0" prefWidth="423.0" />
+                        <Label layoutX="36.0" layoutY="14.0" text="Festas" />
+                        <Label layoutX="40.0" layoutY="155.0" text="Pessoas" />
+                        <Button layoutX="486.0" layoutY="229.0" mnemonicParsing="false" onAction="#convidarFesta" prefHeight="45.0" prefWidth="91.0" text="Convidar" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </center>
+</BorderPane>
